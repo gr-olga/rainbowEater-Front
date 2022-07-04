@@ -1,0 +1,8 @@
+.mainBox {
+    /*background-image: url(./image/cover.png);*/
+    background-size: cover;
+    background-position: center;
+    background-position-y: 120%;
+    min-height: 100vh;
+    margin: 0;
+}

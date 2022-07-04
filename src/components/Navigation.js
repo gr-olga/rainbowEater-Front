@@ -7,15 +7,13 @@ import { logOut } from "../store/user/slice"
 export const Navigation = () => {
 
   const [ open, setOpen ] = useState(false)
-
   const dispatch = useDispatch()
-
   const token = useSelector(selectToken)
 
   return(
     <Nav>
       <Logo href="/">
-        Codaisseur<span>templates</span>
+        Eat Rainbow
       </Logo>
       <Hamburger onClick={() => setOpen(!open)}>
         <span/>
@@ -26,8 +24,8 @@ export const Navigation = () => {
         {token 
           ? <MenuLink onClick={() => dispatch(logOut())}>Logout</MenuLink> 
           : <MenuLink href="/login">Login</MenuLink>}
-        <MenuLink href="/leaflet">Empty 1</MenuLink>
-        <MenuLink href="/styled">Empty 2</MenuLink>
+        <MenuLink href="/leaflet">Color</MenuLink>
+        <MenuLink href="/styled">Your Idea</MenuLink>
       </Menu>
     </Nav>
   )
@@ -53,7 +51,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: #B22727;
+  background: #c7b19f;
   /* position: absolute; */
   top: 0;
   left: 0;
