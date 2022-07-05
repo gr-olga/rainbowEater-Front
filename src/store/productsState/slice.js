@@ -1,8 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    products: [],
-
+    products: [] || null,
+    productByColor: {} ||[]
 };
 
 export const prodStateSlice = createSlice({
@@ -11,11 +11,14 @@ export const prodStateSlice = createSlice({
     reducers: {
         setProducts:(state, action)=>{
            state.products = action.payload
+        },
+        setProductsByColor:(state, action)=>{
+           state.productByColor = action.payload
         }
     }
 })
 
-export const {setProducts} =
+export const {setProducts, setProductsByColor} =
     prodStateSlice.actions;
 
 export default prodStateSlice.reducer;

@@ -1,34 +1,37 @@
 import styled from "styled-components"
-import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { selectToken } from "../store/user/selectors"
-import { logOut } from "../store/user/slice"
+import {useState} from "react"
+import {useDispatch, useSelector} from "react-redux"
+import {selectToken} from "../store/user/selectors"
+import {logOut} from "../store/user/slice"
 
 export const Navigation = () => {
 
-  const [ open, setOpen ] = useState(false)
-  const dispatch = useDispatch()
-  const token = useSelector(selectToken)
+    const [open, setOpen] = useState(false)
+    const dispatch = useDispatch()
+    const token = useSelector(selectToken)
 
-  return(
-    <Nav>
-      <Logo href="/">
-        Eat Rainbow
-      </Logo>
-      <Hamburger onClick={() => setOpen(!open)}>
-        <span/>
-        <span/>
-        <span/>
-      </Hamburger>
-      <Menu open={open}>
-        {token 
-          ? <MenuLink onClick={() => dispatch(logOut())}>Logout</MenuLink> 
-          : <MenuLink href="/login">Login</MenuLink>}
-        <MenuLink href="/leaflet">Color</MenuLink>
-        <MenuLink href="/styled">Your Idea</MenuLink>
-      </Menu>
-    </Nav>
-  )
+    return (
+        <Nav>
+            <Logo href="/">
+                Eat Rainbow
+            </Logo>
+            <Hamburger onClick={() => setOpen(!open)}>
+                <span/>
+                <span/>
+                <span/>
+            </Hamburger>
+            <Menu open={open}>
+                {token
+                    ? <MenuLink onClick={() => dispatch(logOut())}>Logout</MenuLink>
+                    : <MenuLink href="/login">Login</MenuLink>}
+                <MenuLink href="/product/:color">Color</MenuLink>
+                <MenuLink href="/recipe">Recipes</MenuLink>
+                <MenuLink href="/add">Your Idea</MenuLink>
+                {token && <MenuLink href="/tracker">Track you rainbow</MenuLink>
+                }
+            </Menu>
+        </Nav>
+    )
 }
 
 const MenuLink = styled.a`
@@ -75,6 +78,7 @@ const Hamburger = styled.div`
   display: none;
   flex-direction: column;
   cursor: pointer;
+
   span {
     height: 2px;
     width: 25px;

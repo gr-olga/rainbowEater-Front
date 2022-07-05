@@ -1,33 +1,49 @@
 import "./App.css";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getUserWithStoredToken } from "./store/user/thunks";
-import { Routes, Route } from "react-router-dom";
-import { Navigation, MessageBox } from "./components";
-import { Homepage, Login, SignUp } from "./pages"
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {getUserWithStoredToken} from "./store/user/thunks";
+import {Route, Routes} from "react-router-dom";
+import {MessageBox, Navigation} from "./components";
+import {Homepage, Login, SignUp} from "./pages"
+import {getProducts} from "./store/productsState/thunks";
+import ColorPage from "./pages/ColorPage/ColorPage";
+import RecipePage from "./pages/RecipePage/RecipePage";
+import AddRecipe from "./pages/AddRecipe/AddRecipe";
+import {selectToken} from "./store/user/selectors";
+import Tracker from "./pages/Tracker/Tracker";
 
 
 function App() {
+    const dispatch = useDispatch();
+    const token = useSelector(selectToken)
 
-  const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [])
 
-  useEffect(() => {
-    dispatch(getUserWithStoredToken());
-  }, [dispatch]);
-  
-  return (
-    <div>
-      <Navigation/>
-      <MessageBox/>
-        <div className="mainBox">
-      <Routes>
-        <Route path="/" element={<Homepage />}/>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </div>
-    </div>
-  );
+
+    useEffect(() => {
+        dispatch(getUserWithStoredToken());
+    }, [dispatch]);
+
+    return (
+        <div>
+            <Navigation/>
+            <MessageBox/>
+            <div className="mainBox">
+                <Routes>
+                    <Route path="/" element={<Homepage/>}/>
+                    <Route path="/signup" element={<SignUp/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/product/:color" element={<ColorPage/>}/>
+                    <Route path="/recipe" element={<RecipePage/>}/>
+                    <Route path="/add" element={<AddRecipe/>}/>
+                    {token && <Route exact path="/tracker" element={<Tracker/>}/>
+                    }
+                </Routes>
+            </div>
+        </div>
+    );
 }
 
 export default App;
