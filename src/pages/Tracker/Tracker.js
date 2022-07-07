@@ -18,7 +18,7 @@ export default function Tracker() {
 
     const handleCheck = (color) => {
         if (trackColor.includes(color)) {
-            return
+            return setTrackColor(trackColor.filter((c) => c !== color))
         }
         setTrackColor([...trackColor, color])
     }
