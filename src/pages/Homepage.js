@@ -7,7 +7,6 @@ import {useState} from "react";
 
 
 export const Homepage = () => {
-    // const dispatch = useDispatch()
     const products = useSelector(selectProducts)
     const colors = useSelector(selectColors)
     const [choosingColor, setChoosingColor] = useState('')
@@ -18,12 +17,6 @@ export const Homepage = () => {
         setChoosingColor(colors[random])
     };
 
-
-    // useEffect(() => {
-    //     dispatch(getProducts())
-    console.log(products);
-    // }, [])
-
     return (
         <div>
             <div>
@@ -32,7 +25,6 @@ export const Homepage = () => {
                     <img src={wheel}/>
                     <h4>{choosingColor}</h4>
                 </div>
-                <Tracker/>
                 <div>
                     <button>Red</button>
                     <button>Orange</button>
@@ -47,13 +39,7 @@ export const Homepage = () => {
                     <h4>item.title</h4>
                     <img src={item.image}/>
                 </>
-            })
-            }
-            {/*<div>*/}
-            {/*    <h3>Recipe of the day</h3>*/}
-            {/*    <img src={recipe}/>*/}
-            {/*    <p>description</p>*/}
-            {/*</div>*/}
+            })}
         </div>
     )
 }
