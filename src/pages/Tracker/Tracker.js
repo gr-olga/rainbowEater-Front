@@ -17,7 +17,13 @@ export default function Tracker() {
     console.log(tracker);
 
     const handleCheck = (color) => {
+        if (trackColor.includes(color)) {
+            return
+        }
         setTrackColor([...trackColor, color])
+    }
+    const handleSend = (day) => {
+        console.log(trackColor, day);
     }
     console.log("trackDay", trackDay, "trackColor", trackColor);
     return (
@@ -35,7 +41,7 @@ export default function Tracker() {
                                 </>
                             )
                         })}
-                        <button>save you track</button>
+                        <button onClick={() => handleSend(day)}>save you track</button>
                     </div>)
             })}
         </>
