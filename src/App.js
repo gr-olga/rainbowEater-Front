@@ -11,6 +11,7 @@ import RecipePage from "./pages/RecipePage/RecipePage";
 import AddRecipe from "./pages/AddRecipe/AddRecipe";
 import {selectToken} from "./store/user/selectors";
 import Tracker from "./pages/Tracker/Tracker";
+import {getTrack} from "./store/trackState/thunks";
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
     useEffect(() => {
         dispatch(getUserWithStoredToken());
     }, [dispatch]);
+
+    useEffect(() => {
+        dispatch(getTrack())
+    }, [])
 
     return (
         <div>

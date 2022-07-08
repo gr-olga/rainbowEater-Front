@@ -18,3 +18,22 @@ export const getTrack = () => {
         }
     }
 }
+
+export const postTrack = (day, color) => {
+    return async (dispatch, getState) => {
+        const token = selectToken(getState());
+        try {
+            const res = await axios.post(`${apiUrl}/tracker`,
+                {
+                    day: day,
+                    color: color,
+                }, {
+                    headers: {Authorization: `Bearer ${token}`},
+                });
+            console.log("i post it");
+            // dispatch(setTracker(res.data))
+        } catch (error) {
+            console.log(error.response.data.message);
+        }
+    }
+}

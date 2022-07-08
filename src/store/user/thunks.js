@@ -4,6 +4,7 @@ import { selectToken } from "./selectors";
 import { appLoading, appDoneLoading, setMessage } from "../appState/slice";
 import { showMessageWithTimeout } from "../appState/thunks";
 import { loginSuccess, logOut, tokenStillValid } from "./slice";
+import {getTrack} from "../trackState/thunks";
 
 export const signUp = (name, email, password) => {
   return async (dispatch, getState) => {
@@ -57,6 +58,7 @@ export const login = (email, password) => {
       dispatch(
         loginSuccess({ token: response.data.token, user: response.data.user })
       );
+      dispatch(getTrack())
       dispatch(showMessageWithTimeout("success", false, "welcome back!", 1500));
       dispatch(appDoneLoading());
     } catch (error) {

@@ -1,19 +1,18 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getTrack} from "../../store/trackState/thunks";
+import {postTrack} from "../../store/trackState/thunks";
 import {selectTracker} from "../../store/trackState/selectors";
 
 export default function Tracker() {
     const dispatch = useDispatch()
     const tracker = useSelector(selectTracker)
-    const [trackDay, setTrackDay] = useState("")
     const [trackColor, setTrackColor] = useState([])
     const week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     const color = ["red", "orange", "yellow", "green", "blue", "purple"]
 
-    useEffect(() => {
-        dispatch(getTrack())
-    }, [])
+    // useEffect(() => {
+    //     dispatch(getTrack())
+    // }, [])
     console.log(tracker);
 
     const handleCheck = (color) => {
@@ -23,27 +22,36 @@ export default function Tracker() {
         setTrackColor([...trackColor, color])
     }
     const handleSend = (day) => {
+        dispatch(postTrack(day, trackColor))
         console.log(trackColor, day);
     }
-    console.log("trackDay", trackDay, "trackColor", trackColor);
     return (
         <>
             <div>Track you rainbow</div>
-            {week.map((day) => {
+            {week.map((day, index) => {
                 return (
-                    <div>
+                    <div key={index}>
                         <h2>{day}</h2>
-                        {color.map((c) => {
+                        {color.map((c, index) => {
                             return (
-                                <>
+                                <div key={index}>
                                     <p>{c}</p>
                                     <input type="checkbox" name="interest" onChange={() => handleCheck(c)}/>
-                                </>
+                                </div>
                             )
                         })}
                         <button onClick={() => handleSend(day)}>save you track</button>
                     </div>)
             })}
+            {tracker.map((t) => {
+                return (
+                    <div>
+                        <h5>tracker {t.day}</h5>
+                        {t.color.map((c) => <p>{c}</p>)}
+                    </div>
+                )
+            })
+            }
         </>
     )
 }
