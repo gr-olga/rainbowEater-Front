@@ -5,7 +5,7 @@ import {useEffect} from "react";
 import {useParams} from "react-router-dom";
 
 
-export default function ColorPage(){
+export default function ColorPage() {
     const params = useParams();
     const {color} = params
     const dispatch = useDispatch()
@@ -14,11 +14,20 @@ export default function ColorPage(){
     useEffect(() => {
         dispatch(getProductsByColor(color))
     }, [])
+
     console.log(productsByColor);
-    return(
+    return (
         <div>
-        <div>Products by color</div>
-            {productsByColor.map((i) => <p>{i.title}</p>)}
+            <div>Products by color</div>
+            {productsByColor?.map((i) => {
+                return (
+                    <div key={i.id}>
+                        <p>{i.title}</p>
+                        <img src={i.image}/>
+                    </div>
+                )
+            })}
+
         </div>
     )
 }

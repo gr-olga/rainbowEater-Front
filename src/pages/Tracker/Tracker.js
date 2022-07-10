@@ -43,7 +43,7 @@ export default function Tracker() {
                         <button onClick={() => handleSend(day)}>save you track</button>
                     </div>)
             })}
-            {tracker.map((t) => {
+            {tracker?.map((t) => {
                 return (
                     <div>
                         <h5>tracker {t.day}</h5>

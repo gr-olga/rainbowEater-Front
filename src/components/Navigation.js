@@ -24,8 +24,7 @@ export const Navigation = () => {
                 {token
                     ? <MenuLink onClick={() => dispatch(logOut())}>Logout</MenuLink>
                     : <MenuLink href="/login">Login</MenuLink>}
-                <MenuLink href="/product/:color">Color</MenuLink>
-                <MenuLink href="/recipe">Recipes</MenuLink>
+                <MenuLink href="/recipes">Recipes</MenuLink>
                 <MenuLink href="/add">Your Idea</MenuLink>
                 {token && <MenuLink href="/tracker">Track you rainbow</MenuLink>
                 }

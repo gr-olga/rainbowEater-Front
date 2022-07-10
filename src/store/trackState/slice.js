@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    tracker: {}
+    tracker: []
 };
 
 export const trackStateSlice = createSlice({

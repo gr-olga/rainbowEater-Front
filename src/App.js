@@ -7,11 +7,11 @@ import {MessageBox, Navigation} from "./components";
 import {Homepage, Login, SignUp} from "./pages"
 import {getProducts} from "./store/productsState/thunks";
 import ColorPage from "./pages/ColorPage/ColorPage";
-import RecipePage from "./pages/RecipePage/RecipePage";
 import AddRecipe from "./pages/AddRecipe/AddRecipe";
 import {selectToken} from "./store/user/selectors";
 import Tracker from "./pages/Tracker/Tracker";
 import {getTrack} from "./store/trackState/thunks";
+import RecipesPage from "./pages/RecipesPage/RecipesPage";
 
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
                     <Route path="/signup" element={<SignUp/>}/>
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/product/:color" element={<ColorPage/>}/>
-                    <Route path="/recipe" element={<RecipePage/>}/>
+                    <Route path="/recipes" element={<RecipesPage/>}/>
                     <Route path="/add" element={<AddRecipe/>}/>
                     {token && <Route exact path="/tracker" element={<Tracker/>}/>
                     }

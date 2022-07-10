@@ -2,18 +2,18 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     products: [] || null,
-    productByColor: {} ||[]
+    productByColor: []
 };
 
 export const prodStateSlice = createSlice({
     name: "prodState",
     initialState,
     reducers: {
-        setProducts:(state, action)=>{
-           state.products = action.payload
+        setProducts: (state, action) => {
+            state.products = action.payload
         },
-        setProductsByColor:(state, action)=>{
-           state.productByColor = action.payload
+        setProductsByColor: (state, action) => {
+            state.productByColor = action.payload
         }
     }
 })

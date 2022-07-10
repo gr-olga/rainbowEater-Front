@@ -1,9 +1,9 @@
 import wheel from "../image/cilorWheel.png"
 import {useSelector} from "react-redux";
 import {selectProducts} from "../store/productsState/selectors";
-import Tracker from "./Tracker/Tracker";
 import {selectColors} from "../store/appState/selectors";
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 
 export const Homepage = () => {
@@ -26,19 +26,25 @@ export const Homepage = () => {
                     <h4>{choosingColor}</h4>
                 </div>
                 <div>
-                    <button>Red</button>
-                    <button>Orange</button>
-                    <button>Yellow</button>
-                    <button>Green</button>
-                    <button>Blue</button>
-                    <button>Purple</button>
+                    {colors.map((c, index) => {
+                        return (
+                            <div key={index}>
+                                <Link to={`/product/${c}`}>
+                                    <button onClick={() => console.log(c)}>{c}</button>
+                                </Link>
+                            </div>
+                        )
+                    })
+                    }
                 </div>
             </div>
             {products?.map((item) => {
-                <>
-                    <h4>item.title</h4>
-                    <img src={item.image}/>
-                </>
+                return (
+                    <div key={item.id}>
+                        <h4>{item.title}</h4>
+                        <img src={item.image}/>
+                    </div>
+                )
             })}
         </div>
     )

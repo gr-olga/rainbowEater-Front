@@ -16,7 +16,8 @@ export const getProducts = () => {
 export const getProductsByColor = (color) => {
     return async (dispatch, getState) => {
         try {
-            const res = await axios.get(`${apiUrl}/product/${color}`, );
+            const res = await axios.get(`${apiUrl}/product/${color}`);
+            console.log("get");
             dispatch(setProductsByColor(res.data))
     }
         catch (error) {
