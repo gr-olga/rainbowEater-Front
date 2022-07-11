@@ -24,7 +24,9 @@ export const Homepage = () => {
                 <div>
                     <button onClick={() => randomColor()} className="colorBtn">Random Color</button>
                     <img src={wheel}/>
-                    <h4 style={{backgroundColor: choosingColor}}>{choosingColor}</h4>
+                    {choosingColor && <Link to={`/product/${choosingColor}`}>
+                        <h4 style={{color: choosingColor}}>Click and see all {choosingColor} products</h4>
+                    </Link>}
                 </div>
                 <div className="listOfBtn">
                     {colors.map((c, index) => {
