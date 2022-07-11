@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getUserWithStoredToken} from "./store/user/thunks";
 import {Route, Routes} from "react-router-dom";
 import {MessageBox, Navigation} from "./components";
-import {Homepage, Login, SignUp} from "./pages"
+import {Login, SignUp} from "./pages"
 import {getProducts} from "./store/productsState/thunks";
 import ColorPage from "./pages/ColorPage/ColorPage";
 import AddRecipe from "./pages/AddRecipe/AddRecipe";
@@ -12,6 +12,7 @@ import {selectToken} from "./store/user/selectors";
 import Tracker from "./pages/Tracker/Tracker";
 import {getTrack} from "./store/trackState/thunks";
 import RecipesPage from "./pages/RecipesPage/RecipesPage";
+import {Homepage} from "./pages/HomePages/Homepage";
 
 
 function App() {

@@ -1,0 +1,80 @@
+.homeBox {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.colorsBox {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.prodsBox {
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    grid-template-rows: repeat(5, 300px);
+    /*grid-column-gap: 5px;*/
+    /*grid-row-gap: 10px;*/
+    margin: auto;
+}
+
+.prodImage {
+    height: 200px;
+    width: 150px;
+}
+
+.itemBox {
+    max-height: 350px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prodBtn {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    font-family: Roboto, sans-serif;
+    border-radius: 10rem;
+    color: #041e25;
+    text-transform: uppercase;
+    font-size: .5rem;
+    font-weight: bold;
+    letter-spacing: .10rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 5px;
+}
+
+.prodTitle {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.listOfBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+.colorBtn {
+    width: 100px;
+    margin-left: 5px;
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    font-family: Roboto, sans-serif;
+    border-radius: 10rem;
+    color: #041e25;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .5rem;
+    font-weight: bold;
+    letter-spacing: .10rem;
+}
+
