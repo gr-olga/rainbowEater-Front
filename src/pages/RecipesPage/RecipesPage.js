@@ -16,7 +16,7 @@ export default function RecipesPage() {
             <h2>Recipes</h2>
             {recipes?.map((r) => {
                 return (
-                    <div>
+                    <div key={r.id}>
                         <h3>{r.title}</h3>
                         <img src={r.image}/>
                         <p>{r.description}</p>

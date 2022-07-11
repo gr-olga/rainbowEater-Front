@@ -13,6 +13,7 @@ import Tracker from "./pages/Tracker/Tracker";
 import {getTrack} from "./store/trackState/thunks";
 import RecipesPage from "./pages/RecipesPage/RecipesPage";
 import {Homepage} from "./pages/HomePages/Homepage";
+import ProdRecipePage from "./pages/ProdRecipePage/ProdRecipePage";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
                     <Route path="/login" element={<Login/>}/>
                     <Route path="/product/:color" element={<ColorPage/>}/>
                     <Route path="/recipes" element={<RecipesPage/>}/>
+                    <Route path="/recipes/:id" element={<ProdRecipePage/>}/>
                     <Route path="/add" element={<AddRecipe/>}/>
                     {token && <Route exact path="/tracker" element={<Tracker/>}/>
                     }

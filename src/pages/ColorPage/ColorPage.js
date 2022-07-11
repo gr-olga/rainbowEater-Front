@@ -33,9 +33,9 @@ export default function ColorPage() {
                             altering the fruit’s shape, firmness, juiciness and even its color. Red Delicious is the parent apple
                             of several popular varieties like the Starkrimson, Empire and Fuji apples.
                         </span>
-                            {/*<Link>*/}
+                            <Link to ={`/recipes/${i.id}`}>
                             <button className="btn">Recipe</button>
-                            {/*</Link>*/}
+                            </Link>
                         </div>
                     )
                 })}

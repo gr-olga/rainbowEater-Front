@@ -53,7 +53,9 @@ export const Homepage = () => {
                         <div key={item.id} className="itemBox">
                             <h4 className="prodTitle">{item.title}</h4>
                             <img src={item.image} className="prodImage"/>
-                            <button className="prodBtn">Recipe</button>
+                            <Link to={`/recipes/${item.id}`}>
+                                <button className="prodBtn">Recipe</button>
+                            </Link>
                         </div>
                     )
                 })}
