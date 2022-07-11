@@ -26,6 +26,16 @@ export default function Tracker() {
         dispatch(postTrack(day, trackColor))
         console.log(trackColor, day);
     }
+
+    function getTrackerDay(tracker, day) {
+        return tracker.find(td => td.day === day)
+    }
+
+    function isColorCheckedAtDay(trackerDay, color) {
+        if (!trackerDay) return false;
+        return trackerDay.color.includes(color)
+    }
+
     return (
         <div className="trackPageBpx">
             <div>Track you rainbow</div>
@@ -39,7 +49,9 @@ export default function Tracker() {
                                     return (
                                         <div key={index} className="colorCh" style={{backgroundColor: c}}>
                                             <p className="colorName">{c}</p>
-                                            <input type="checkbox" name="interest" onChange={() => handleCheck(c)}/>
+                                            <input type="checkbox" name="interest"
+                                                   checked={isColorCheckedAtDay(getTrackerDay(tracker, day), c)}
+                                                   onChange={() => handleCheck(c)}/>
                                         </div>
                                     )
                                 })}
