@@ -1,14 +1,24 @@
 import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {selectRecipesByProduct} from "../../store/resipesState/selectors";
+import {postNewRecipes} from "../../store/resipesState/thunks";
 
 export default function AddRecipe() {
+    const dispatch = useDispatch()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
     const [color, setColor] = useState('')
+    const [products, setProducts] = useState('')
+    const newRecipe = useSelector(selectRecipesByProduct)
 
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+        dispatch(postNewRecipes(title, description, image, color, products))
+    }
     return (
         <div>
-            <form>
+            <form onSubmit={onFormSubmit}>
                 <label>Name it</label>
                 <input
                     type="text"
@@ -24,6 +34,10 @@ export default function AddRecipe() {
                     type="text"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}/>
+                <label>main product</label>
+                <input type="text"
+                       value={products}
+                       onChange={(e) => setProducts(e.target.value)}/>
                 <label>Color it </label>
                 <select
                     value={color}
@@ -35,8 +49,15 @@ export default function AddRecipe() {
                     <option selected="blue">Blue</option>
                     <option selected="purple">Purple</option>
                 </select>
-                <button>Create a new recipe</button>
+                <button type="submit" onClick={() => onFormSubmit}>Create a new recipe</button>
             </form>
+            {newRecipe ?
+                <div>
+                    <h3>{newRecipe.title}</h3>
+                    <span>{newRecipe.description}</span>
+                    <img src={newRecipe.image}/>
+                </div> : <h9>add something new</h9>
+            }
         </div>
     )
 }

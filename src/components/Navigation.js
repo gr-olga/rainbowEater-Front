@@ -43,7 +43,7 @@ const MenuLink = styled.a`
   font-size: 0.9rem;
 
   &:hover {
-    color: #9CC094;
+    color: #0a2c03;
   }
 `
 
@@ -53,7 +53,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: #c7b19f;
+  background: #74b479;
   /* position: absolute; */
   top: 0;
   left: 0;

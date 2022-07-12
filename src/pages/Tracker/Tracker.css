@@ -11,7 +11,7 @@
     flex-direction: column;
     margin-left: 50px;
     margin-right: 50px;
-    max-width: 800px;
+    /*max-width: 800px;*/
     align-self: center;
 }
 
@@ -43,16 +43,17 @@
     font-weight: bold;
     margin-left: 30px;
     justify-self: end;
+    width: 130px;
 }
 
 .btnColor {
     width: 200px;
     margin-top: 55px;
     justify-self: end;
-    /*display: inline-block;*/
+    display: inline-block;
     padding: .75rem 1.25rem;
     font-family: Roboto, sans-serif;
-    border-radius: 10rem;
+    /*border-radius: 10rem;*/
     color: #041e25;
     text-align: center;
     text-transform: uppercase;
@@ -64,5 +65,15 @@
 
 .weekBox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.pageTitle {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 40px;
+    border: 0.5px solid black;
+    padding: 10px;
 }

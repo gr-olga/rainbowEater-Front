@@ -1,6 +1,6 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {postTrack} from "../../store/trackState/thunks";
+import {getTrack, postTrack} from "../../store/trackState/thunks";
 import {selectTracker} from "../../store/trackState/selectors";
 import "./Tracker.css"
 
@@ -11,17 +11,13 @@ export default function Tracker() {
     const week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
     const color = ["red", "orange", "yellow", "green", "blue", "purple"]
 
-    // useEffect(() => {
-    //     dispatch(getTrack())
-    // }, [])
-    console.log(tracker);
 
-    const handleCheck = (color) => {
-        if (trackColor.includes(color)) {
-            return setTrackColor(trackColor.filter((c) => c !== color))
-        }
-        setTrackColor([...trackColor, color])
-    }
+    useEffect(() => {
+        dispatch(getTrack())
+    }, [trackColor])
+    // console.log("length", trackColor.length);
+
+
     const handleSend = (day) => {
         dispatch(postTrack(day, trackColor))
         console.log(trackColor, day);
@@ -36,9 +32,19 @@ export default function Tracker() {
         return trackerDay.color.includes(color)
     }
 
+    const handleCheck = (color) => {
+        //TODO repair handleCheck
+        if (trackColor.includes(color)) {
+            return setTrackColor(trackColor.filter((c) => c !== color))
+        }
+        setTrackColor([...trackColor, color])
+    }
+
+    console.log(trackColor);
+
     return (
         <div className="trackPageBpx">
-            <div>Track you rainbow</div>
+            <div className="pageTitle">Track you rainbow</div>
             <div className="trackBox">
                 {week.map((day, index) => {
                     return (
@@ -47,11 +53,17 @@ export default function Tracker() {
                             <div className="colorCheck">
                                 {color.map((c, index) => {
                                     return (
-                                        <div key={index} className="colorCh" style={{backgroundColor: c}}>
+                                        <div key={index}
+                                             className={'colorCh'}
+                                             style={{
+                                                 backgroundColor: isColorCheckedAtDay(getTrackerDay(tracker, day), c) ? `${c}` : '',
+                                             }}
+                                        >
                                             <p className="colorName">{c}</p>
-                                            <input type="checkbox" name="interest"
-                                                   checked={isColorCheckedAtDay(getTrackerDay(tracker, day), c)}
-                                                   onChange={() => handleCheck(c)}/>
+                                            <input type="checkbox"
+                                                   name="interest"
+                                                   onChange={() => handleCheck(c)}
+                                            />
                                         </div>
                                     )
                                 })}
