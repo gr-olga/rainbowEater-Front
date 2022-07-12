@@ -1,0 +1,45 @@
+.mainForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: .10rem;
+}
+
+.recForm {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    margin-top: 40px;
+}
+
+.inputRes {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+::placeholder {
+    color: #1E3163;
+}
+
+.subBtn {
+    width: 100%;
+    margin-left: 5px;
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    font-family: Roboto, sans-serif;
+    border-radius: 10rem;
+    color: #041e25;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .5rem;
+    font-weight: bold;
+    letter-spacing: .10rem;
+    margin-top: 10px;
+}

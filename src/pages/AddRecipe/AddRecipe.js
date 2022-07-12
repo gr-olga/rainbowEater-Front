@@ -2,6 +2,7 @@ import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {selectRecipesByProduct} from "../../store/resipesState/selectors";
 import {postNewRecipes} from "../../store/resipesState/thunks";
+import "./AddRecipe.css"
 
 export default function AddRecipe() {
     const dispatch = useDispatch()
@@ -17,29 +18,34 @@ export default function AddRecipe() {
         dispatch(postNewRecipes(title, description, image, color, products))
     }
     return (
-        <div>
-            <form onSubmit={onFormSubmit}>
+        <div className="mainForm">
+            <form onSubmit={onFormSubmit} className="recForm">
                 <label>Name it</label>
                 <input
+                    className="inputRes"
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}/>
                 <label>Describe it</label>
                 <input
+                    className="inputRes"
                     type="text"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}/>
                 <label>add picture</label>
                 <input
+                    className="inputRes"
                     type="text"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}/>
                 <label>main product</label>
                 <input type="text"
+                       className="inputRes"
                        value={products}
                        onChange={(e) => setProducts(e.target.value)}/>
                 <label>Color it </label>
                 <select
+                    className="inputRes"
                     value={color}
                     onChange={(e) => setColor(e.target.value)}>
                     <option selected="red">Red</option>
@@ -49,7 +55,12 @@ export default function AddRecipe() {
                     <option selected="blue">Blue</option>
                     <option selected="purple">Purple</option>
                 </select>
-                <button type="submit" onClick={() => onFormSubmit}>Create a new recipe</button>
+                <button
+                    className="subBtn"
+                    type="submit" onClick={() => onFormSubmit}
+                >
+                    Create a new recipe
+                </button>
             </form>
             {newRecipe ?
                 <div>
