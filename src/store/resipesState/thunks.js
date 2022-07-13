@@ -26,7 +26,7 @@ export const getRecipesByProd = (prodId) => {
 export const postNewRecipes = (title, description, image, color, product) => {
     return async (dispatch, getState) => {
         try {
-            const res = await axios.post(`${apiUrl}/recipes/`, {
+            const res = await axios.post(`${apiUrl}/recipes`, {
                 title: title,
                 description: description,
                 image: image,

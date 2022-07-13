@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectRecipesByProduct} from "../../store/resipesState/selectors";
 import {postNewRecipes} from "../../store/resipesState/thunks";
 import "./AddRecipe.css"
-import Cloudinary from "../../components/Cloudinary/Cloudinary";
 
 export default function AddRecipe() {
     const dispatch = useDispatch()
@@ -17,6 +16,11 @@ export default function AddRecipe() {
     const onFormSubmit = (e) => {
         e.preventDefault();
         dispatch(postNewRecipes(title, description, image, color, products))
+        setImage("")
+        setProducts("")
+        setColor("")
+        setDescription("")
+        setTitle("")
     }
 
 
@@ -36,10 +40,10 @@ export default function AddRecipe() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}/>
                 <label>add picture</label>
-                <Cloudinary
-                    className="inputRes"
-                    image={image}
-                    setImage={setImage}/>
+                {/*<Cloudinary*/}
+                {/*    className="inputRes"*/}
+                {/*    image={image}*/}
+                {/*    setImage={setImage}/>*/}
                 <label>Or you can add a link to an image from the Internet </label>
                 <input type="text"
                        className="inputRes"
@@ -56,12 +60,12 @@ export default function AddRecipe() {
                     className="inputRes"
                     value={color}
                     onChange={(e) => setColor(e.target.value)}>
-                    <option selected="red">Red</option>
-                    <option selected="orange">Orange</option>
-                    <option selected="yellow">Yellow</option>
-                    <option selected="green">Green</option>
-                    <option selected="blue">Blue</option>
-                    <option selected="purple">Purple</option>
+                    <option value="red">Red</option>
+                    <option value="orange">Orange</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
                 </select>
                 <button
                     className="subBtn"
@@ -71,10 +75,10 @@ export default function AddRecipe() {
                 </button>
             </form>
             {newRecipe ?
-                <div>
-                    <h3>{newRecipe.title}</h3>
-                    <span>{newRecipe.description}</span>
-                    <img src={newRecipe.image}/>
+                <div className="boxRes">
+                    <h3 className="resName">{newRecipe.title}</h3>
+                    <img className="resImg" src={newRecipe.image}/>
+                    <span className="resDescr">{newRecipe.description}</span>
                 </div> : <h9>add something new</h9>
             }
         </div>

@@ -1,0 +1,40 @@
+.pageTitle {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.recipeBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.oneBox{
+    display: grid;
+    grid-template-columns: repeat(2, 450px);
+    grid-template-rows: repeat(auto-fit, 450px);
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+    margin: auto;
+}
+
+.resImage{
+    height: 300px;
+    width: 250px;
+    transition: none;
+    border-radius: 10%;
+}
+.resTitle{
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.box{
+    margin: auto;
+}
+.resDisc{
+    font-family: Roboto, sans-serif;
+    overflow: hidden;
+}

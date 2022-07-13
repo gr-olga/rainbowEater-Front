@@ -43,3 +43,33 @@
     letter-spacing: .10rem;
     margin-top: 10px;
 }
+
+.boxRes {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    background-color: #74b479;
+    padding: 15px;
+    border-radius: 5%;
+    color: white;
+}
+
+.resName {
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+}
+
+.resImg {
+    height: 400px;
+    width: 350px;
+    transition: none;
+    border-radius: 10%;
+    margin-bottom: 10px;
+}
+
+.resDescr {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
