@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectRecipesByProduct} from "../../store/resipesState/selectors";
 import {postNewRecipes} from "../../store/resipesState/thunks";
 import "./AddRecipe.css"
+import Cloudinary from "../../components/Cloudinary/Cloudinary";
 
 export default function AddRecipe() {
     const dispatch = useDispatch()
@@ -17,6 +18,8 @@ export default function AddRecipe() {
         e.preventDefault();
         dispatch(postNewRecipes(title, description, image, color, products))
     }
+
+
     return (
         <div className="mainForm">
             <form onSubmit={onFormSubmit} className="recForm">
@@ -33,11 +36,16 @@ export default function AddRecipe() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}/>
                 <label>add picture</label>
-                <input
+                <Cloudinary
                     className="inputRes"
-                    type="text"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}/>
+                    image={image}
+                    setImage={setImage}/>
+                <label>Or you can add a link to an image from the Internet </label>
+                <input type="text"
+                       className="inputRes"
+                       value={image}
+                       onChange={(e) => setImage(e.target.value)}
+                />
                 <label>main product</label>
                 <input type="text"
                        className="inputRes"

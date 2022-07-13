@@ -21,12 +21,13 @@ export const Homepage = () => {
     return (
         <div className="homeBox">
             <div className="colorsBox">
-                <div>
-                    <button onClick={() => randomColor()} className="colorBtn">Random Color</button>
+                <div className="colorBtnBox">
+                <button onClick={() => randomColor()} className="colorBtn">
                     <img src={wheel}/>
-                    {choosingColor && <Link to={`/product/${choosingColor}`}>
-                        <h4 style={{color: choosingColor}}>Click and see all {choosingColor} products</h4>
-                    </Link>}
+                </button>
+                {choosingColor && <Link to={`/product/${choosingColor}`} >
+                    <h4 style={{color: choosingColor}}>Here all {choosingColor} products</h4>
+                </Link>}
                 </div>
                 <div className="listOfBtn">
                     {colors.map((c, index) => {

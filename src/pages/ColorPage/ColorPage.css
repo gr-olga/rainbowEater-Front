@@ -1,9 +1,10 @@
-.pageBox{
+.pageBox {
     display: flex;
     flex-direction: column;
     margin: auto;
 }
-.productListBox{
+
+.productListBox {
     display: grid;
     grid-template-columns: repeat(2, 550px);
     grid-template-rows: repeat(5, 400px);
@@ -11,7 +12,8 @@
     grid-row-gap: 100px;
     margin: auto;
 }
-.productBox{
+
+.productBox {
     margin-top: 30px;
     max-height: 550px;
     max-width: 400px;
@@ -20,17 +22,21 @@
     align-items: center;
 }
 
-.image{
+.image {
     height: 200px;
     width: 150px;
     margin-bottom: 10px;
+    transition: none;
+    border-radius: 10%;
 }
-.title{
+
+.title {
     font-family: Roboto, sans-serif;
     font-size: 16px;
     text-transform: uppercase;
 }
-.btn{
+
+.btn {
     width: 100px;
     margin-left: 5px;
     display: inline-block;
@@ -45,7 +51,8 @@
     letter-spacing: .10rem;
     margin-top: 10px;
 }
-.pageName{
+
+.pageName {
     font-family: Roboto, sans-serif;
     font-size: 24px;
     font-weight: bold;

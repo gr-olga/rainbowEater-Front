@@ -31,9 +31,10 @@ export const postTrack = (day, color) => {
                     headers: {Authorization: `Bearer ${token}`},
                 });
             console.log("i post it");
-            // dispatch(setTracker(res.data))
+            dispatch(getTrack())
         } catch (error) {
             console.log(error.response.data.message);
         }
     }
 }
+
