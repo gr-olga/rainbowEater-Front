@@ -1,29 +1,26 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getTrack, postTrack} from "../../store/trackState/thunks";
+import {postTrack} from "../../store/trackState/thunks";
 import {selectTracker} from "../../store/trackState/selectors";
 import "./Tracker.css"
+import {selectColors, selectDays} from "../../store/appState/selectors";
 
 export default function Tracker() {
     const dispatch = useDispatch()
     const tracker = useSelector(selectTracker)
     const [trackColor, setTrackColor] = useState([])
-    const week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-    const color = ["red", "orange", "yellow", "green", "blue", "purple"]
-
-
-    useEffect(() => {
-        dispatch(getTrack())
-    }, [trackColor])
-    // console.log("length", trackColor.length);
+    const color = useSelector(selectColors)
+    const week = useSelector(selectDays)
 
 
     const handleSend = (day) => {
         dispatch(postTrack(day, trackColor))
+        setTrackColor([])
         console.log(trackColor, day);
     }
 
     function getTrackerDay(tracker, day) {
+        console.log(day);
         return tracker.find(td => td.day === day)
     }
 

@@ -12,7 +12,7 @@ export const Homepage = () => {
     const colors = useSelector(selectColors)
     const [choosingColor, setChoosingColor] = useState('')
 
-    const randomColor = () => {
+    const getRandomColor = () => {
         const random = Math.floor(Math.random() * colors.length);
         console.log(random, colors[random]);
         setChoosingColor(colors[random])
@@ -22,11 +22,11 @@ export const Homepage = () => {
         <div className="homeBox">
             <div className="colorsBox">
                 <div className="colorBtnBox">
-                <button onClick={() => randomColor()} className="colorBtn">
+                <button onClick={() => getRandomColor()} className="colorBtn">
                     <img src={wheel}/>
                 </button>
                 {choosingColor && <Link to={`/product/${choosingColor}`} >
-                    <h4 style={{color: choosingColor}}>Here all {choosingColor} products</h4>
+                    <h4 style={{color: choosingColor}} className="colLink">Eat {choosingColor} product</h4>
                 </Link>}
                 </div>
                 <div className="listOfBtn">
