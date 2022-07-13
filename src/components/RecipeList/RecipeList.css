@@ -11,7 +11,8 @@
     align-items: center;
     margin: auto;
 }
-.oneBox{
+
+.oneBox {
     display: grid;
     grid-template-columns: repeat(2, 450px);
     grid-template-rows: repeat(auto-fit, 450px);
@@ -20,21 +21,41 @@
     margin: auto;
 }
 
-.resImage{
+.resImage {
     height: 300px;
     width: 250px;
     transition: none;
     border-radius: 10%;
 }
-.resTitle{
+
+.resTitle {
     font-family: Roboto, sans-serif;
     font-size: 16px;
     text-transform: uppercase;
 }
-.box{
+
+.box {
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
-.resDisc{
+
+.resDisc {
     font-family: Roboto, sans-serif;
     overflow: hidden;
+}
+
+.resBtn {
+    margin-left: 5px;
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    font-family: Roboto, sans-serif;
+    border-radius: 10rem;
+    color: #041e25;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: .5rem;
+    font-weight: bold;
+    letter-spacing: .10rem;
+    margin-top: 10px;
 }

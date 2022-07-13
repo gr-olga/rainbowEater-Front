@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {getRecipesByProd} from "../../store/resipesState/thunks";
 import {selectRecipesByProduct} from "../../store/resipesState/selectors";
+import RecipeList from "../../components/RecipeList/RecipeList";
 
 export default function ProdRecipePage() {
     const dispatch = useDispatch()
@@ -15,16 +16,6 @@ export default function ProdRecipePage() {
     })
 
     return (
-        <>
-            <div>ProdRecipePage</div>
-            {recipes?.map((r) => {
-                return (
-                    <div key={r.id}>
-                        <h2>{r.title}</h2>
-                        <img src={r.image}/>
-                    </div>
-                )
-            })}
-        </>
+        <RecipeList recipes={recipes}/>
     )
 }
