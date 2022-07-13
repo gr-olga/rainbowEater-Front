@@ -1,0 +1,42 @@
+.listBox {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    border: 1px solid black;
+}
+
+.dayName {
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 30px;
+    justify-self: end;
+    width: 130px;
+}
+
+.weekBox {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+}
+
+.colorCheck {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.colorCh {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 100px;
+    align-items: center;
+}
+
+.colName {
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
+}

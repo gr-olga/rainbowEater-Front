@@ -12,6 +12,7 @@ export const getTrack = () => {
             const res = await axios.get(`${apiUrl}/tracker`, {
                 headers: {Authorization: `Bearer ${token}`},
             });
+            console.log(res, 'this is response')
             dispatch(setTracker(res.data))
         } catch (error) {
             console.log(error.response.data.message);
@@ -22,6 +23,7 @@ export const getTrack = () => {
 export const postTrack = (day, color) => {
     return async (dispatch, getState) => {
         const token = selectToken(getState());
+        console.log(day, color, "day", "color");
         try {
             const res = await axios.post(`${apiUrl}/tracker`,
                 {

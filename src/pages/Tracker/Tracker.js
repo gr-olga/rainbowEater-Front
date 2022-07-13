@@ -4,23 +4,24 @@ import {postTrack} from "../../store/trackState/thunks";
 import {selectTracker} from "../../store/trackState/selectors";
 import "./Tracker.css"
 import {selectColors, selectDays} from "../../store/appState/selectors";
+import TrackList from "../../components/TrackList/TrackList";
 
 export default function Tracker() {
+    const d = new Date();
     const dispatch = useDispatch()
     const tracker = useSelector(selectTracker)
     const [trackColor, setTrackColor] = useState([])
     const color = useSelector(selectColors)
-    const week = useSelector(selectDays)
+    const weekDay = useSelector(selectDays)
+    let day = weekDay[d.getDay()].toString()
 
-
+    console.log(day, "this is the day");
     const handleSend = (day) => {
         dispatch(postTrack(day, trackColor))
-        setTrackColor([])
-        console.log(trackColor, day);
+        // / setTrackColor([])
     }
 
     function getTrackerDay(tracker, day) {
-        console.log(day);
         return tracker.find(td => td.day === day)
     }
 
@@ -30,61 +31,42 @@ export default function Tracker() {
     }
 
     const handleCheck = (color) => {
-        //TODO repair handleCheck
         if (trackColor.includes(color)) {
             return setTrackColor(trackColor.filter((c) => c !== color))
+        } else {
+            setTrackColor([...trackColor, color])
         }
-        setTrackColor([...trackColor, color])
     }
-
-    console.log(trackColor);
 
     return (
         <div className="trackPageBpx">
             <div className="pageTitle">Track you rainbow</div>
             <div className="trackBox">
-                {week.map((day, index) => {
+                <h2 className="dayName">{day}</h2>
+                {color.map((c, index) => {
                     return (
-                        <div key={index} className="weekBox">
-                            <h2 className="dayName">{day}</h2>
-                            <div className="colorCheck">
-                                {color.map((c, index) => {
-                                    return (
-                                        <div key={index}
-                                             className={'colorCh'}
-                                             style={{
-                                                 backgroundColor: isColorCheckedAtDay(getTrackerDay(tracker, day), c) ? `${c}` : '',
-                                             }}
-                                        >
-                                            <p className="colorName">{c}</p>
-                                            <input type="checkbox"
-                                                   name="interest"
-                                                   onChange={() => handleCheck(c)}
-                                            />
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                            <button
-                                className="btnColor"
-                                onClick={() => handleSend(day)}
-                            >
-                                save you track
-                            </button>
-                        </div>)
+                        <div key={index}
+                             className={'colorCh'}
+                             style={{
+                                 backgroundColor: isColorCheckedAtDay(getTrackerDay(tracker, day), c) ? `${c}` : '',
+                             }}
+                        >
+                            <p className="colorName">{c}</p>
+                            <input type="checkbox"
+                                   name="interest"
+                                   onChange={() => handleCheck(c)}
+                            />
+                        </div>
+                    )
                 })}
-                {/*<div >*/}
-                {/*    {tracker?.map((t) => {*/}
-                {/*        return (*/}
-                {/*            <div >*/}
-                {/*                <h5>tracker {t.day}</h5>*/}
-                {/*                {t.color.map((c) => <p>{c}</p>)}*/}
-                {/*            </div>*/}
-                {/*        )*/}
-                {/*    })*/}
-                {/*    }*/}
-                {/*< /div>*/}
+                <button
+                    className="btnColor"
+                    onClick={() => handleSend(day)}
+                >
+                    save you track
+                </button>
             </div>
+            <TrackList/>
         </div>
     )
 }

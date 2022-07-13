@@ -8,18 +8,14 @@
 
 .trackBox {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-left: 50px;
     margin-right: 50px;
     /*max-width: 800px;*/
     align-self: center;
 }
 
-.colorCheck {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
+
 
 .colorCh {
     display: flex;
@@ -37,14 +33,7 @@
     text-transform: uppercase;
 }
 
-.dayName {
-    font-family: Roboto, sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: 30px;
-    justify-self: end;
-    width: 130px;
-}
+
 
 .btnColor {
     width: 200px;
@@ -63,11 +52,7 @@
     align-self: flex-end;
 }
 
-.weekBox {
-    display: flex;
-    flex-direction: row;
-    border-bottom: 1px solid black;
-}
+
 
 .pageTitle {
     font-family: Roboto, sans-serif;

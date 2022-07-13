@@ -9,6 +9,7 @@ export const trackStateSlice = createSlice({
     initialState,
     reducers: {
         setTracker:(state, action)=>{
+            console.log(action.payload, 'this is tracker')
             state.tracker = action.payload
         },
     }

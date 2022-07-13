@@ -82,8 +82,8 @@ export default function AddRecipe() {
                     <h3 className="resName">{newRecipe.title}</h3>
                     <img className="resImg" src={newRecipe.image}/>
                     <span className="resDescr">{newRecipe.description}</span>
-                </div> : <h9 style={{textAlign: "center", paddingTop: "40px", margin: "auto"}}>
-                </h9>
+                </div> : <h6 style={{textAlign: "center", paddingTop: "40px", margin: "auto"}}>
+                </h6>
             }
         </div>
     )

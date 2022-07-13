@@ -56,6 +56,7 @@ img:hover {
 }
 
 .prodBtn {
+    cursor: pointer;
     display: inline-block;
     padding: .75rem 1.25rem;
     font-family: Roboto, sans-serif;
@@ -88,6 +89,7 @@ img:hover {
 }
 
 .colorBtn {
+    cursor: pointer;
     margin-left: 5px;
     display: inline-block;
     padding: .75rem 1.25rem;
