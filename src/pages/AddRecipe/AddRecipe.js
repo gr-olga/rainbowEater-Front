@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectRecipesByProduct} from "../../store/resipesState/selectors";
 import {postNewRecipes} from "../../store/resipesState/thunks";
 import "./AddRecipe.css"
+import Cloudinary from "../../components/Cloudinary/Cloudinary";
 
 export default function AddRecipe() {
     const dispatch = useDispatch()
@@ -11,6 +12,7 @@ export default function AddRecipe() {
     const [image, setImage] = useState('')
     const [color, setColor] = useState('')
     const [products, setProducts] = useState('')
+    const [open, setOpen] = useState(false)
     const newRecipe = useSelector(selectRecipesByProduct)
 
     const onFormSubmit = (e) => {
@@ -21,6 +23,7 @@ export default function AddRecipe() {
         setColor("")
         setDescription("")
         setTitle("")
+        setOpen(true)
     }
 
 
@@ -40,10 +43,10 @@ export default function AddRecipe() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}/>
                 <label>add picture</label>
-                {/*<Cloudinary*/}
-                {/*    className="inputRes"*/}
-                {/*    image={image}*/}
-                {/*    setImage={setImage}/>*/}
+                <Cloudinary
+                    className="inputRes"
+                    image={image}
+                    setImage={setImage}/>
                 <label>Or you can add a link to an image from the Internet </label>
                 <input type="text"
                        className="inputRes"
@@ -74,12 +77,13 @@ export default function AddRecipe() {
                     Create a new recipe
                 </button>
             </form>
-            {newRecipe ?
+            {open && newRecipe ?
                 <div className="boxRes">
                     <h3 className="resName">{newRecipe.title}</h3>
                     <img className="resImg" src={newRecipe.image}/>
                     <span className="resDescr">{newRecipe.description}</span>
-                </div> : <h9>add something new</h9>
+                </div> : <h9 style={{textAlign: "center", paddingTop: "40px", margin: "auto"}}>
+                </h9>
             }
         </div>
     )

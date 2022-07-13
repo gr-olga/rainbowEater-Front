@@ -15,9 +15,12 @@ export const Button = styled.button`
 `;
 
 export const Image = styled.img`
-  width: 300px;
+  width: 200px;
+  height: 250px;
   margin: 15px;
-  border-radius: 2em;`
+  border-radius: 2em;
+  transition: none;
+`
 
 
 export const Title = styled.h2`

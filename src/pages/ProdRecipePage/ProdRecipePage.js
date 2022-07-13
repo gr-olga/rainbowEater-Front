@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {getRecipesByProd} from "../../store/resipesState/thunks";
 import {selectRecipesByProduct} from "../../store/resipesState/selectors";
@@ -14,8 +14,18 @@ export default function ProdRecipePage() {
     useEffect(() => {
         dispatch(getRecipesByProd(id))
     })
-
-    return (
-        <RecipeList recipes={recipes}/>
-    )
+    if (recipes) {
+        return (
+            <>
+                {recipes.length !== 0 ?
+                    (<RecipeList recipes={recipes}/>)
+                    :
+                    (<h3 style={{textAlign: "center", paddingTop: "40px", margin: "auto"}}>
+                        We dont have recipes with tis product. You can add
+                        <Link to="/add"> here</Link>
+                    </h3>)
+                }
+            </>
+        )
+    }
 }
