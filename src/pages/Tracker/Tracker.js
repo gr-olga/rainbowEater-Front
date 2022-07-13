@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {postTrack} from "../../store/trackState/thunks";
 import {selectTracker} from "../../store/trackState/selectors";
@@ -11,14 +11,13 @@ export default function Tracker() {
     const dispatch = useDispatch()
     const tracker = useSelector(selectTracker)
     const [trackColor, setTrackColor] = useState([])
-    const color = useSelector(selectColors)
+    const colors = useSelector(selectColors)
     const weekDay = useSelector(selectDays)
-    let day = weekDay[d.getDay()].toString()
+    let day = weekDay[d.getDay() - 1].toString()
 
-    console.log(day, "this is the day");
     const handleSend = (day) => {
         dispatch(postTrack(day, trackColor))
-        // / setTrackColor([])
+        // / setTrackColor([])s
     }
 
     function getTrackerDay(tracker, day) {
@@ -32,7 +31,7 @@ export default function Tracker() {
 
     const handleCheck = (color) => {
         if (trackColor.includes(color)) {
-            return setTrackColor(trackColor.filter((c) => c !== color))
+            setTrackColor(trackColor.filter((c) => c !== color))
         } else {
             setTrackColor([...trackColor, color])
         }
@@ -42,8 +41,11 @@ export default function Tracker() {
         <div className="trackPageBpx">
             <div className="pageTitle">Track you rainbow</div>
             <div className="trackBox">
-                <h2 className="dayName">{day}</h2>
-                {color.map((c, index) => {
+                <h2 className="dayName">
+                    <span>Today is </span>
+                    <span>{day}</span>
+                </h2>
+                {colors.map((c, index) => {
                     return (
                         <div key={index}
                              className={'colorCh'}
@@ -54,6 +56,7 @@ export default function Tracker() {
                             <p className="colorName">{c}</p>
                             <input type="checkbox"
                                    name="interest"
+                                   disabled={isColorCheckedAtDay(getTrackerDay(tracker, day), c)}
                                    onChange={() => handleCheck(c)}
                             />
                         </div>
@@ -63,7 +66,7 @@ export default function Tracker() {
                     className="btnColor"
                     onClick={() => handleSend(day)}
                 >
-                    save you track
+                    save you track today
                 </button>
             </div>
             <TrackList/>

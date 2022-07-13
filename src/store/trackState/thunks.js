@@ -12,7 +12,6 @@ export const getTrack = () => {
             const res = await axios.get(`${apiUrl}/tracker`, {
                 headers: {Authorization: `Bearer ${token}`},
             });
-            console.log(res, 'this is response')
             dispatch(setTracker(res.data))
         } catch (error) {
             console.log(error.response.data.message);
