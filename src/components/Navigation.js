@@ -3,6 +3,7 @@ import {useState} from "react"
 import {useDispatch, useSelector} from "react-redux"
 import {selectToken} from "../store/user/selectors"
 import {logOut} from "../store/user/slice"
+import logo from "../image/cilorWheel.png"
 
 export const Navigation = () => {
 
@@ -13,7 +14,8 @@ export const Navigation = () => {
     return (
         <Nav>
             <Logo href="/">
-                Eat Rainbow
+                <img style={{marginRight: "20px"}} src={logo}/>
+                <p> Eat Rainbow</p>
             </Logo>
             <Hamburger onClick={() => setOpen(!open)}>
                 <span/>
@@ -48,7 +50,7 @@ const MenuLink = styled.a`
 `
 
 const Nav = styled.div`
-  padding: 0 2rem;
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,11 +63,16 @@ const Nav = styled.div`
 `
 
 const Logo = styled.a`
-  padding: 1rem 0;
+  //padding: 1rem 0;
   color: #ECECEC;
   text-decoration: none;
   font-weight: 800;
   font-size: 1.7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
 
   span {
     font-weight: 300;

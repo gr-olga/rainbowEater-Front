@@ -1,6 +1,7 @@
 .mainBox {
     /*background-image: url(./image/cover.png);*/
-    background-color: #daefef;
+    /*background-color: #657c56;*/
+    background-color: rgb(198, 245, 201);;
     background-size: cover;
     background-position: center;
     background-position-y: 120%;
