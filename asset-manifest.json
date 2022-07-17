@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/rainbowEater-Front/static/css/main.88bfe42b.css",
+    "main.js": "/rainbowEater-Front/static/js/main.68f90f57.js",
+    "static/media/cilorWheel.png": "/rainbowEater-Front/static/media/cilorWheel.9433b7ba1c65f5269e56.png",
+    "index.html": "/rainbowEater-Front/index.html",
+    "main.88bfe42b.css.map": "/rainbowEater-Front/static/css/main.88bfe42b.css.map",
+    "main.68f90f57.js.map": "/rainbowEater-Front/static/js/main.68f90f57.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.88bfe42b.css",
+    "static/js/main.68f90f57.js"
+  ]
+}
