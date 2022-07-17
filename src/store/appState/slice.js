@@ -3,7 +3,7 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     loading: false,
     message: null,
-    week: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    week: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     color: ["red", "orange", "yellow", "green", "blue", "purple"]
 };
 

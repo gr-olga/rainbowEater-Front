@@ -13,7 +13,7 @@ export default function Tracker() {
     const [trackColor, setTrackColor] = useState([])
     const colors = useSelector(selectColors)
     const weekDay = useSelector(selectDays)
-    let day = weekDay[d.getDay() - 1].toString()
+    let day = weekDay[d.getDay()].toString()
 
     const handleSend = (day) => {
         dispatch(postTrack(day, trackColor))
