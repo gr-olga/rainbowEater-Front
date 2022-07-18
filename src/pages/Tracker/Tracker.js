@@ -5,6 +5,7 @@ import {selectTracker} from "../../store/trackState/selectors";
 import "./Tracker.css"
 import {selectColors, selectDays} from "../../store/appState/selectors";
 import TrackList from "../../components/TrackList/TrackList";
+import Chart from "../../components/Chart/Chart";
 
 export default function Tracker() {
     const d = new Date();
@@ -16,6 +17,25 @@ export default function Tracker() {
     const [dayIndex, setDayIndex] = useState(d.getDay());
     const [dayOfWeek, setDayOfWeek] = useState(weekDay[d.getDay()].toString())
     // let day = weekDay[d.getDay()].toString()
+
+    console.log(tracker)
+
+    const colorCounts = tracker.reduce((result, currentDay) => {
+        console.log(currentDay)
+        const colors = currentDay.color;
+        colors.forEach(color => {
+            if (Object.keys(result).includes(color)) {
+                result[color] = result[color] + 1
+            }
+            else {
+                result[color] = 1
+            }
+        })
+        return result
+    }, {})
+
+    const chartData = Object.keys(colorCounts).map(color => ({title: color, value: colorCounts[color], color:color}))
+
 
     const handleSend = (day) => {
         dispatch(postTrack(day, trackColor))
@@ -85,6 +105,7 @@ export default function Tracker() {
             >
                 Change day
             </button>
+            < Chart data={chartData}/>
         </div>
     )
 }
