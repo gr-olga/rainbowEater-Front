@@ -1,6 +1,6 @@
 Rainbow Eater it is app to help you and your family eat more fruit.
 
-Link for the deployed version [!](https://ref1.netlify.app/)
+Link for the deployed version [Rainbow Eater](https://ref1.netlify.app/)
 
 Project Motivation:
 
@@ -10,4 +10,4 @@ because different colors have different health benefits
 
 Database Tables:
 
-![](/Users/olga/Desktop/Code/rainbowEater-Front/src/image/Untitled.png)
+![![](/Users/olga/Desktop/Code/rainbowEater-Front/src/image/Untitled.png)](/Users/olga/Desktop/Code/rainbowEater-Front/src/image/Untitled.png)
