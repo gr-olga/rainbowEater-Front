@@ -10,4 +10,4 @@ because different colors have different health benefits
 
 Database Tables:
 
-![![](/Users/olga/Desktop/Code/rainbowEater-Front/src/image/Untitled.png)](/Users/olga/Desktop/Code/rainbowEater-Front/src/image/Untitled.png)
+![my DB](../image/Untitled.png)
