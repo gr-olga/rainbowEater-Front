@@ -10,4 +10,4 @@ because different colors have different health benefits
 
 Database Tables:
 
-![my DB](../image/Untitled.png)
+(![](src/image/Untitled.png).)
