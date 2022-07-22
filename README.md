@@ -10,4 +10,5 @@ because different colors have different health benefits
 
 Database Tables:
 
-(![](src/image/Untitled.png).)
+![](src/image/Untitled.png)
+

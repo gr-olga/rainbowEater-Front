@@ -27,14 +27,10 @@ export default function ColorPage() {
                             <p className="title">{i.title}</p>
                             <img src={i.image} className="image"/>
                             <span>
-                            Red Delicious apples are one of the most well known commercially grown apples in the United States.
-                            The Botanically, they are classified as Malus domestica. Red Delicious apples look a lot different
-                            today than when they were first discovered. Over a perd of nearly 100 years, improvements were made,
-                            altering the fruit’s shape, firmness, juiciness and even its color. Red Delicious is the parent apple
-                            of several popular varieties like the Starkrimson, Empire and Fuji apples.
+                           {i.description}
                         </span>
-                            <Link to ={`/recipes/${i.id}`}>
-                            <button className="btn">Recipe</button>
+                            <Link to={`/recipes/${i.id}`}>
+                                <button className="btn">Recipe</button>
                             </Link>
                         </div>
                     )
