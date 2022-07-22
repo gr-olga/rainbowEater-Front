@@ -3,8 +3,6 @@ import {useState} from "react";
 import Display from "./Display"
 
 export default function RecipeList(props) {
-    const [show, setShow] = useState(false);
-
 
     return (
         <div className="recipeBox">
