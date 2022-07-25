@@ -1,6 +1,6 @@
 Rainbow Eater it is app to help you and your family eat more fruit.
 
-Link for the deployed version [Rainbow Eater](https://ref1.netlify.app/)
+Link for the deployed version [Rainbow Eater](https://62dab1e6b09fcf2ee1324c57--radiant-sorbet-e9f66f.netlify.app/)
 
 Project Motivation:
 
